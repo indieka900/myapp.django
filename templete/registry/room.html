@@ -1,7 +1,13 @@
-{% extends 'main.html' %}
-
-{% block content %}
-{% include 'navbar.html' %}
-<hi align="centre">WELCOME HOME MY FRIEND</hi>
+{% extends 'main.html' %} {% block content %} {% include 'navbar.html' %}
+<h1 align="centre">WELCOME HOME MY FRIEND</h1>
 <h2>Your choice is {{room.name}}</h2>
+<p>{{room.description}}</p>
+<div class="comment-wrapper">
+    <h3>Conversation</h3>
+    <hr> {% for message in messages%}
+    <div>
+        <small>@{{message.user}}  {{message.created}}</small>
+    </div>
+    {% endfor %}
+</div>
 {% endblock %}
