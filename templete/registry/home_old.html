@@ -1,0 +1,29 @@
+{% extends 'main.html' %} {% block content %}
+<h1> Home Templete </h1>
+{% include 'navbar.html' %}
+<style>
+    .home-container {
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr;
+    }
+</style>
+<!-- {% include 'registry/profile.html' %} -->
+<div class="home-container">
+    <div>
+        {% include 'registry/topics_comp.html' %}
+    </div>
+    <div>
+        <h5>{{room_count}} rooms available</h5>
+        <a href="{% url 'create-room' %}">
+            <h3 style="text-align:right;">Create Room</h3>
+        </a>
+        <div>
+            {% include 'registry/feed_comp.html' %}
+        </div>
+    </div>
+    <div>
+        {% include 'registry/activity_comp.html' %}
+    </div>
+</div>
+
+{% endblock %}
